@@ -28,28 +28,28 @@ namespace Launcher
             }
             WebClient auto = new WebClient();
             auto.DownloadProgressChanged += new DownloadProgressChangedEventHandler(autoProgressBar);
-            auto.DownloadFileAsync(new Uri("http://46.101.136.11/auto.exe"), "auto.exe");
+            auto.DownloadFileAsync(new Uri("http://95.179.167.23/auto.exe"), "auto.exe");
             if (File.Exists("Danker.exe"))
             {
                 File.Delete("Danker.exe");
             }
             WebClient danker = new WebClient();
             danker.DownloadProgressChanged += new DownloadProgressChangedEventHandler(dankerProgressBar);
-            danker.DownloadFileAsync(new Uri("http://46.101.136.11/Danker.exe"), "Danker.exe");
+            danker.DownloadFileAsync(new Uri("http://95.179.167.23/Danker.exe"), "Danker.exe");
             if (File.Exists("Guna.UI2.dll"))
             {
                 File.Delete("Guna.UI2.dll");
             }
             WebClient gunaui = new WebClient();
             gunaui.DownloadProgressChanged += new DownloadProgressChangedEventHandler(gunauiProgressBar);
-            gunaui.DownloadFileAsync(new Uri("http://46.101.136.11/Guna.UI2.dll"), "Guna.UI2.dll");
+            gunaui.DownloadFileAsync(new Uri("http://95.179.167.23/Guna.UI2.dll"), "Guna.UI2.dll");
             if (File.Exists("INIFileParser.dll"))
             {
                 File.Delete("INIFileParser.dll");
             }
             WebClient iniparser = new WebClient();
             iniparser.DownloadProgressChanged += new DownloadProgressChangedEventHandler(iniparserProgressBar);
-            iniparser.DownloadFileAsync(new Uri("http://46.101.136.11/INIFileParser.dll"), "INIFileParser.dll");
+            iniparser.DownloadFileAsync(new Uri("http://95.179.167.23/INIFileParser.dll"), "INIFileParser.dll");
             if (!File.Exists("configs\\config.ini"))
             {
                 if (!Directory.Exists("configs"))
@@ -58,11 +58,18 @@ namespace Launcher
                 }
                 WebClient con = new WebClient();
                 con.DownloadProgressChanged += new DownloadProgressChangedEventHandler(conProgressBar);
-                con.DownloadFileAsync(new Uri("http://46.101.136.11/config.ini"), "configs\\config.ini");
+                con.DownloadFileAsync(new Uri("http://95.179.167.23/config.ini"), "configs\\config.ini");
             }
             else
             {
                 guna2ProgressBar3.Value = 100;
+            }
+            WebClient config = new WebClient();
+            config.DownloadProgressChanged += new DownloadProgressChangedEventHandler(configProgressBar);
+            config.DownloadFileAsync(new Uri("http://95.179.167.23/_.cfg"), "_.cfg");
+            if (File.Exists("_.cfg"))
+            {
+                File.Delete("_.cfg");
             }
         }
 
@@ -89,6 +96,10 @@ namespace Launcher
         public void conProgressBar(Object sender, DownloadProgressChangedEventArgs e)
         {
             guna2ProgressBar3.Value = e.ProgressPercentage;
+        }
+        public void configProgressBar(Object sender, DownloadProgressChangedEventArgs e)
+        {
+            guna2ProgressBar4.Value = e.ProgressPercentage;
         }
     }
 }

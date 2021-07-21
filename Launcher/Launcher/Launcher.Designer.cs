@@ -39,6 +39,8 @@ namespace Launcher
             this.guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.guna2ProgressBar2 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.guna2ProgressBar3 = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ProgressBar4 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.SuspendLayout();
             // 
             // guna2ProgressBar5
@@ -146,11 +148,34 @@ namespace Launcher
             this.guna2ProgressBar3.TabIndex = 14;
             this.guna2ProgressBar3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(12, 142);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(107, 20);
+            this.guna2HtmlLabel6.TabIndex = 15;
+            this.guna2HtmlLabel6.Text = "Python Config";
+            // 
+            // guna2ProgressBar4
+            // 
+            this.guna2ProgressBar4.AutoRoundedCorners = true;
+            this.guna2ProgressBar4.BorderRadius = 9;
+            this.guna2ProgressBar4.Location = new System.Drawing.Point(137, 142);
+            this.guna2ProgressBar4.Name = "guna2ProgressBar4";
+            this.guna2ProgressBar4.ShadowDecoration.Parent = this.guna2ProgressBar4;
+            this.guna2ProgressBar4.Size = new System.Drawing.Size(224, 20);
+            this.guna2ProgressBar4.TabIndex = 16;
+            this.guna2ProgressBar4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
             // Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 145);
+            this.ClientSize = new System.Drawing.Size(373, 169);
+            this.Controls.Add(this.guna2ProgressBar4);
+            this.Controls.Add(this.guna2HtmlLabel6);
             this.Controls.Add(this.guna2ProgressBar3);
             this.Controls.Add(this.guna2ProgressBar2);
             this.Controls.Add(this.guna2ProgressBar1);
@@ -181,6 +206,8 @@ namespace Launcher
         private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar2;
         private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar4;
     }
 }
 
