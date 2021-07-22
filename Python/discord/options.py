@@ -443,7 +443,7 @@ def Overnight():
                 time.sleep(t)  
 
             # printing how many cycles left
-            print("\nCycles left: " + cycles + str(cycles) + reset + "")
+            print("\nCycles left: " + blue + str(cycles) + reset + "")
             # waiting for cycle_time - total time
             print("\nRepeating cylce in " + blue + str(cycle_time - t_total) + reset + " seconds.\n")
             time.sleep(cycle_time - t_total)   
