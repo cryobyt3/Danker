@@ -147,8 +147,12 @@ def Search(channel, token):
 
         if s:
             # grab the content from the response
-            r = r['embeds'][0]['description']
-            content = str(r)
+            content = str(r['content'])
+
+            # check if content is embeded
+            if content == '':
+                # set content to the embeded
+                content = r['embeds'][0]['description']
             
             # remove ',' from content
             content = content.replace(',', '')

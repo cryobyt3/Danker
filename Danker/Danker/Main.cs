@@ -143,6 +143,8 @@ namespace Danker
                 guna2DataGridView1.Rows.Add("cycles-range1", data["TIMINGS"]["cycles-range1"]);
                 guna2DataGridView1.Rows.Add("cycles-range2", data["TIMINGS"]["cycles-range2"]);
                 guna2DataGridView1.Rows.Add("cycle-time", data["TIMINGS"]["cycle-time"]);
+                guna2DataGridView1.Rows.Add("cycle-time-range1", data["TIMINGS"]["cycle-time-range1"]);
+                guna2DataGridView1.Rows.Add("cycle-time-range2", data["TIMINGS"]["cycle-time-range2"]);
             }
             else
             {

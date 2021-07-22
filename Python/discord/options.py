@@ -49,6 +49,9 @@ wait_range2 = int(get_value('TIMINGS', 'wait-between-commands-range-2'))
 cycles_range1 = int(get_value('TIMINGS', 'cycles-range1'))
 cycles_range2 = int(get_value('TIMINGS', 'cycles-range2'))
 cycle_time = int(get_value('TIMINGS', 'cycle-time'))
+wait_cycles = get_value('TIMINGS', 'wait-cycles')
+cycle_time_range1 = int(get_value('TIMINGS', 'cycle-time-range1'))
+cycle_time_range2 = int(get_value('TIMINGS', 'cycle-time-range2'))
 item_wait = 3
 
 # defining a shop_item function with item
@@ -157,10 +160,10 @@ def Run_Setup():
     # set the url and data variables
     url = 'https://api.auth.gg/v1/'
     data = {
-        'type': 'redacted',
-        'aid': 'redacted',
-        'secret': 'redacted',
-        'apikey': 'redacted'
+        'type': 'info',
+        'aid': '262402',
+        'secret': 'lwOLrbBCXgJOVI1M9blr47j0MY13qUMaxva',
+        'apikey': '2416546123366171218592471465'
     }
 
     # send post request
@@ -357,7 +360,14 @@ def Overnight():
         # the value in cycles
         cycles = random.randint(cycles_range1, cycles_range2)
         # creating a variable with the value of cycles
-        tcycles = cycles
+        if wait_cycles != 'cycles':
+            tcycles = int(wait_cycles)
+        else:
+            tcycles = cycles
+
+        # checking if there's a range to wait
+        if cycle_time_range1 != 'None' and cycle_time_range2 != 'None':
+            cycle_time = random.randint(cycle_time_range1, cycle_time_range2)
 
         while cycles != 0:
             # subtract 1 from cycles
@@ -391,7 +401,7 @@ def Overnight():
             if fish_check == 'True':
                 # execute commands and store coins received in coins
                 coins = Fish(channel, token)
-                print('\nExecuted: pls fish | Received: ' + yellow + str(coins) + reset + ' coins')
+                print('\nExecuted: pls fish')
                 # generating a random integer between the wait_ranges
                 t = random.randint(wait_range1, wait_range2)
                 # adding the integer to total time
@@ -402,7 +412,7 @@ def Overnight():
             if hunt_check == 'True':
                 # execute commands and store coins received in coins
                 coins = Hunt(channel, token)
-                print('\nExecuted: pls hunt | Received: ' + yellow + str(coins) + reset + ' coins')
+                print('\nExecuted: pls hunt')
                 # generating a random integer between the wait_ranges
                 t = random.randint(wait_range1, wait_range2)
                 # adding the integer to total time
@@ -413,7 +423,7 @@ def Overnight():
             if dig_check == 'True':
                 # execute commands and store coins received in coins
                 coins = Dig(channel, token)
-                print('\nExecuted: pls dig | Received: ' + yellow + str(coins) + reset + ' coins')
+                print('\nExecuted: pls dig')
                 # generating a random integer between the wait_ranges
                 t = random.randint(wait_range1, wait_range2)
                 # adding the integer to total time
@@ -432,7 +442,9 @@ def Overnight():
                 # waiting for t
                 time.sleep(t)  
 
-            # waiting for cycle_time - toatl time
+            # printing how many cycles left
+            print("\nCycles left: " + cycles + str(cycles) + reset + "")
+            # waiting for cycle_time - total time
             print("\nRepeating cylce in " + blue + str(cycle_time - t_total) + reset + " seconds.\n")
             time.sleep(cycle_time - t_total)   
 
